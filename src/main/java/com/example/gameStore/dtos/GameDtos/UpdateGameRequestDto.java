@@ -1,16 +1,16 @@
-package com.example.gameStore.dtos;
+package com.example.gameStore.dtos.GameDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GameDto {
-    private int id;
-    private String name;
-    private String key;
+public class UpdateGameRequestDto extends CreateGameRequestDto {
+    private UUID id;
 }
