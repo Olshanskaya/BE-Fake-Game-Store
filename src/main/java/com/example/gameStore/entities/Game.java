@@ -87,6 +87,10 @@ public class Game {
     @PrePersist
     protected void onCreate() {
         this.sku = GameUtilities.generateSku();
+        if (this.thumbnail.isEmpty())
+            this.thumbnail = "https://res.cloudinary.com/df5iprard/image/upload/c_thumb,w_200,g_face/v1723707873/2024-08-15_104400_j19p5p.png";
+        if(this.images == null || this.images.isEmpty())
+            this.images = List.of("https://res.cloudinary.com/df5iprard/image/upload/v1723707873/2024-08-15_104400_j19p5p.png");
     }
 
 }

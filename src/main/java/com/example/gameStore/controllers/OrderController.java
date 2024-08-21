@@ -84,9 +84,8 @@ public class OrderController {
                 .orElseThrow(() -> new ResourceNotFoundException("No order found"));
     }
 
-    @GetMapping("/orders/user")
-    public ResponseEntity<GlobalResponse<List<OrderDto>>> findOrderByUserId(HttpServletRequest request) {
-        String userId = (String) request.getAttribute("userId");
+    @GetMapping("/orders/user/{id}")
+    public ResponseEntity<GlobalResponse<List<OrderDto>>> findOrderByUserId(@PathVariable(required = true, name = "id") String userId) {
         List<OrderDto> orders = orderService.findOrdersByUser(userId);
         if (orders.isEmpty()) {
             throw new ResourceNotFoundException("No order found by user id: " + userId);
