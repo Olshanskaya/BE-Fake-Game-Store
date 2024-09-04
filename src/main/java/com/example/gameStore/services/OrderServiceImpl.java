@@ -170,6 +170,8 @@ public class OrderServiceImpl implements OrderService {
         if (order.isEmpty()) {
             throw new BadRequestException("order not found by userId: " + userId);
         }
+        order.get().setTotalPrice(0.0);
+        orderRepository.save(order.get());
         gameOrderRepository.deleteByOrderId(order.get().getId());
         return Optional.of(mapOrderToOrderDto(order.get()));
     }

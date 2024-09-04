@@ -14,7 +14,7 @@ public class OrderScheduler {
     @Autowired
     private final OrderService orderService;
 
-    @Scheduled(cron = "0 0/10 * * * ?")
+    @Scheduled(cron = "0 0/30 * * * ?")
     public void scheduleDeclineOrderIfDelay() throws InterruptedException {
         System.out.println("=====================================SCHEDULER=====================================");
         orderService.declineAllOrdersIfDelay();

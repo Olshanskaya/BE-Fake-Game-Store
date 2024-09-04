@@ -42,7 +42,7 @@ public class Review {
     @JoinColumn(name = "game_id", nullable = false)
     private Game gameId;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "star_rating")

@@ -22,7 +22,6 @@ import com.example.gameStore.repositories.ReviewRepository;
 import com.example.gameStore.repositories.UserRepository;
 import com.example.gameStore.services.interfaces.GameService;
 import com.example.gameStore.shared.exceptions.BadRequestException;
-import com.example.gameStore.shared.exceptions.NoContentException;
 import com.example.gameStore.shared.exceptions.ResourceNotFoundException;
 import com.example.gameStore.utilities.GameSpecification;
 import com.example.gameStore.utilities.TypeConverter;
@@ -162,6 +161,7 @@ public class GameServiceImpl implements GameService {
     @Override
     public Optional<GameDto> createGame(CreateGameRequestDto createGameRequestDto) {
         Game gameToCreate = modelMapper.map(createGameRequestDto, Game.class);
+        // gameToCreate.setReleaseDate(Timestamp.valueOf(createGameRequestDto.getReleaseDate().toString()));
         Game savedGame = gameRepository.save(gameToCreate);
         return Optional.of(savedGame).map(game -> modelMapper.map(game, GameDto.class));
     }
@@ -236,7 +236,12 @@ public class GameServiceImpl implements GameService {
         if (optGame.isEmpty()) throw new ResourceNotFoundException("Game not found!");
         review.setUserId(optUser.get());
         review.setGameId(optGame.get());
-        Review savedReview = reviewRepository.save(review);
+        Review savedReview;
+        try {
+            savedReview = reviewRepository.save(review);
+        } catch (Exception e) {
+            throw new BadRequestException("You have already reviewed this game.");
+        }
         updateGameRating(optGame.get());
         return Optional.of(modelMapper.map(savedReview, ReviewDto.class));
     }
