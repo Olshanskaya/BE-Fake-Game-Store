@@ -19,6 +19,8 @@ public interface GameService {
 
     GamesListResponseDto findAllActiveGames(String sortField, String sortOrder, int pageNumber, int pageSize, String searchKeyword, List<String> genres, List<String> playerSupport);
 
+    List<GameDto> findHeroGames();
+
     Optional<SingleGameWithReviewsDto> getGameById(String id);
 
     Optional<GameDto> createGame(CreateGameRequestDto createGameRequestDto);

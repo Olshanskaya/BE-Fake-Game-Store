@@ -145,6 +145,19 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
+    public List<GameDto> findHeroGames() {
+        List<Game> games = gameRepository.findAll();
+        return games.
+                stream()
+                .filter(Game::isActive)
+                .sorted((game1, game2) -> Float.compare(game2.getAverageRating(), game1.getAverageRating()))
+                .limit(3)
+                .map(game -> modelMapper.map(game, GameDto.class))
+                .toList();
+    }
+
+
+    @Override
     public Optional<SingleGameWithReviewsDto> getGameById(String id) {
         UUID gameId = TypeConverter.convertStringToUUID(id, "Invalid game id format: " + id);
         Optional<Game> game = gameRepository.findById(gameId);

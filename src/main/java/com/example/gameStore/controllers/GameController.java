@@ -90,6 +90,12 @@ public class GameController {
         return ResponseEntity.ok(new GlobalResponse<>(games));
     }
 
+    @GetMapping("games/active/hero")
+    public ResponseEntity<GlobalResponse<List<GameDto>>> findHeroSection() {
+        List<GameDto> games = gameService.findHeroGames();
+        return ResponseEntity.ok(new GlobalResponse<>(games));
+    }
+
     @GetMapping("games/{id}")
     public ResponseEntity<GlobalResponse<SingleGameWithReviewsDto>> getGameById(@PathVariable String id) {
         Optional<SingleGameWithReviewsDto> gameWithReviews = gameService.getGameById(id);
