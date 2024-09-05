@@ -1,4 +1,4 @@
-FROM eclipse-temurin:22-jdk-focal
+FROM openjdk:22
 
 WORKDIR /app
 
