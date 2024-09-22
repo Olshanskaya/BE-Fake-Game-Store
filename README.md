@@ -106,6 +106,7 @@ Base URL: https://fs18-java-backend-2myd.onrender.com/api/v1
 "role": "ADMIN"
 }
 `
+
 <span style="color:red">**DELETE**</span>. `/users/86ddd61b-7194-4b05-9dbd-162db0c09440` - Delete User by Id
 
 <span style="color:#d4aa00">**POST**</span>. `/users/activate/86ddd61b-7194-4b05-9dbd-162db0c09440` - Activate User
