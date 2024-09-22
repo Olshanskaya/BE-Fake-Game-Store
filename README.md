@@ -86,25 +86,26 @@ Base URL: https://fs18-java-backend-2myd.onrender.com/api/v1
 ### User 
 
 <span style="color:green">**GET**</span>. `/users` - Get all users
+
 <span style="color:green">**GET**</span>. `/users/b3b40ba5-577c-4412-be06-b41e2040cf54` - Get User by Id
 
 <span style="color:#d4aa00">**POST**</span>. `/users` - Create a User
 
 <span style="color:blue">**PATCH**</span>. `/users/7ab87644-ee9c-424e-bbf9-8733c55d8bd6` - Update User  
-{
+`{
 "name" : "Inna",
 "email": "inna@example.com",
 "address": "Somekatu 2",
 "phone": "213124125"
-}
+}`
 
 <span style="color:green">**GET**</span>. `/users/me/games/favourites` - Get User Favourites
 
 <span style="color:blue">**PATCH**</span>. `/users/role/8a46766d-3681-44bd-bf3e-8fdbbcb373ac` - Update User Role  
-{
+`{
 "role": "ADMIN"
 }
-
+`
 <span style="color:red">**DELETE**</span>. `/users/86ddd61b-7194-4b05-9dbd-162db0c09440` - Delete User by Id
 
 <span style="color:#d4aa00">**POST**</span>. `/users/activate/86ddd61b-7194-4b05-9dbd-162db0c09440` - Activate User
@@ -114,12 +115,12 @@ Base URL: https://fs18-java-backend-2myd.onrender.com/api/v1
 <span style="color:red">**DELETE**</span>. `/users/me` - Delete Current User
 
 <span style="color:blue">**PATCH**</span>. `/users/me` - Update Current User  
-{
+`{
 "name" : "Viktoria",
 "email": "vik@gmail.com",
 "address": "Somekatu 2",
 "phone": "0465564758"
-}
+}`
 
 <span style="color:#d4aa00">**POST**</span>. `/users/me/games/favourites/6456c6a4-0938-4650-9d29-6f562c6a03f9` - Add User Favourite
 
